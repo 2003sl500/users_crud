@@ -48,7 +48,7 @@
                 <td style="border: 1px solid black; text-align: center;">{{ user_info.email }}</td>
                 <td style="border: 1px solid black; text-align: center;">{{ user_info.created_at }}</td>
                 <td style="border: 1px solid black; text-align: center;">
-                    <a href="/show_user/{{ user_info.id }}">Show</a> | <a href="/edit_user/{{ user_info.id }}">Edit</a> | <a href="">Delete</a></td>
+                    <a href="/show_user/{{ user_info.id }}">Show</a> | <a href="/edit_user/{{ user_info.id }}">Edit</a> | <a href="/delete_user/{{ user_info.id }}">Delete</a></td>
                    
             </tr>        
             {% endfor %}

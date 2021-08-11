@@ -39,22 +39,34 @@ def show_user(id):
 @app.route('/edit_user/<int:id>')
 def edit_user(id):
     print("edit user pressed ", id)
-    users_info = Users.edit(id)
-    print(users_info)
 
-    return render_template('/edit.html', id = id, all_users = users_info)
+    return render_template('/edit.html', id = id)
 
-@app.route('/edit', methods = ['POST'])
-def edit():
+@app.route('/edit/<int:id>', methods = ['POST'])
+def edit(id):
 
     data = {
+        "id": id,
         "fname": request.form["fname"],
         "lname": request.form["lname"],
         "email": request.form["email"]
     }
 
-    Users.edit(data)
+    print("data: ", data)
+    Users.edit(data, id)
 
+    return redirect('/')
+
+@app.route('/delete_user/<int:id>')
+def delete_user(id):
+    print("pressed delete, delete_user/ ", id)
+
+    data = {
+        "id": id
+    }
+
+    Users.delete(data, id)
+    
     return redirect('/')
 
 if __name__ == '__main__':

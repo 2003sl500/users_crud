@@ -49,11 +49,11 @@
                <p>Email: {{ user_info.email }}</p>
                <p>Created On: {{ user_info.created_at }}</p>
                <p>Last Updated On: {{ user_info.updated_at }}</p>
+               <p><a href="/edit_user/{{user_info.id}}">Edit</a> | <a href="/delete_user/{{user_info.id}}">Delete</a></p>
                {% endfor %}
            
             </div>
         </div>
-            <p><a href="">Edit</a> | <a href="">Delete</a></p>
     </div>
 </body>
 </html>
