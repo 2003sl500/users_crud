@@ -1,4 +1,4 @@
-from mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 
 DATABASE = 'usersdb2'
 class Users:
@@ -28,6 +28,7 @@ class Users:
         #  data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL(DATABASE).query_db(query, data)
 
+    user_result = ""
     @classmethod
     def single_user(cls, id):
         query = "SELECT * FROM users WHERE id = %(id)s;"
@@ -39,6 +40,8 @@ class Users:
         # iterate over the db results and create instances of users with cls
         for user in results:
             users.append( cls(user) )
+
+        print("Results, single user: ", results)
         return users
 
     @classmethod
